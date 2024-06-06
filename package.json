@@ -1,8 +1,8 @@
 {
 	"type": "module",
 	"name": "koa2-template",
-	"version": "2.0.3-dev",
-	"description": "koa2后端模板",
+	"version": "2.0.4-dev",
+	"description": "基于 koa2 构建的 nodejs 后端模版",
 	"scripts": {
 		"dev": "cross-env NODE_ENV=development nodemon --exec tsx -r tsconfig-paths/register ./system/dev/main.ts",
 		"dev:start": "tsx --inspect ./system/main.ts",
