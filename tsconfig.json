@@ -22,5 +22,6 @@
 			"#middleware": ["./src/middleware/index.ts"]
 		}
 	},
-	"lib": ["esnext", "NodeNext"]
+	"lib": ["esnext", "NodeNext"],
+	"exclude": ["node_modules", "dist"]
 }
