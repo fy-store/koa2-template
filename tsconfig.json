@@ -7,7 +7,7 @@
 		"moduleResolution": "NodeNext",
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"outDir": "./dist",
+		"outDir": "./dist/src",
 		"baseUrl": ".",
 		"paths": {
 			// 系统依赖勿动--start------

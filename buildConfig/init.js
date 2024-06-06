@@ -20,7 +20,12 @@ const newPackPath = path.join(rootPath, '/dist/package.json')
 const pack = JSON.parse(fs.readFileSync(packPath, 'utf8'))
 const { type, name, version, description, author, license, dependencies, volta } = pack
 const scripts = {
-	start: 'node ./main.js'
+	start: 'node ./src/main.js'
 }
 const newPack = { type, name, version, description, scripts, author, license, dependencies, volta }
 fs.writeFileSync(newPackPath, JSON.stringify(newPack, null, 4))
+
+// 复制 src/public
+const publicPath = path.join(rootPath, '/src/public')
+const newPublicPath = path.join(rootPath, '/dist/src/public')
+fs.cpSync(publicPath, newPublicPath, { recursive: true })

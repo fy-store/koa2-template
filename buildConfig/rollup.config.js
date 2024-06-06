@@ -7,7 +7,7 @@ import { builtinModules } from 'module' // 引入 Node.js 内置模块列表
 export default {
 	input: './system/main.ts', // 你的入口文件
 	output: {
-		dir: './dist',
+		dir: './dist/src',
 		format: 'esm', // 输出为 ESModule 格式
 		sourcemap: true // 是否生成 sourcemap 文件
 	},
