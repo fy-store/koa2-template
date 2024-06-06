@@ -1,4 +1,4 @@
 node_modules
-logs
-public
-dist
+/logs
+/public
+/dist
