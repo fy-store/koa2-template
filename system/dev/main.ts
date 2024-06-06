@@ -8,7 +8,7 @@ import { type TCallback } from '@system/types/lifeCycle.js'
 const getLifeCycle = async (): Promise<TCallback> => {
 	try {
 		// @ts-ignore
-		const { default: lifeCycle = {} } = await import('@/lifeCycle/index.js')
+		const { default: lifeCycle = {} } = await import('@/main.js')
 		return lifeCycle
 	} catch (error) {
 		if (error?.code === 'ERR_MODULE_NOT_FOUND') return {}
