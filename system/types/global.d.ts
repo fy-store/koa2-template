@@ -30,6 +30,7 @@ declare global {
 		dev: {
 			success: string
 			fail: string
+			publicPath: string
 		}
 	}
 }
