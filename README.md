@@ -4,13 +4,15 @@ koa2 模板, 目前仍在开发中, 不建议生产环境中使用
 
 ## 说明
 
-该项目是一个 nodejs + koa2 + mysql 的后端项目模板
+该项目是一个 nodejs + ts + koa2 + mysql 的后端项目模板
 
 该项目模块化规范采用 ESModule
 
 项目中配置了 router , mysql , JWT , log 等
 
 项目推荐 nodejs 版本 >= 18
+
+项目基于 ts 开发, 提供了完整的类型提示, 当然你也可以使用 js, 两者是可同时并存的
 
 ## 下载
 
@@ -87,25 +89,19 @@ npm run start
 _pnpm_
 
 ```cmd
-pnpm run dev:debug
-# or
-pnpm run start:debug
+pnpm run debug
 ```
 
 _yarn_
 
 ```cmd
-yarn run dev:debug
-# or
-yarn run start:debug
+yarn run debug
 ```
 
 _npm_
 
 ```cmd
-npm run dev:debug
-# or
-npm run start:debug
+npm run debug
 ```
 
 ## 使用手册
