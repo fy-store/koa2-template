@@ -16,24 +16,25 @@ const getLifeCycle = async (): Promise<TCallback> => {
 	}
 }
 
-const lifeCycle = await getLifeCycle()
-if (lifeCycle.beforeInit) await lifeCycle.beforeInit({ app: null, server: null })
-const app = new Koa({ env: process.env.NODE_ENV })
-if (lifeCycle.inited) await lifeCycle.inited({ app, server: null })
+getLifeCycle().then(async (lifeCycle) => {
+	if (lifeCycle.beforeInit) await lifeCycle.beforeInit({ app: null, server: null })
+	const app = new Koa({ env: process.env.NODE_ENV })
+	if (lifeCycle.inited) await lifeCycle.inited({ app, server: null })
 
-const server = http.createServer(app.callback())
-server.on('error', (error: any) => {
-	if (error?.code === 'EADDRINUSE') {
-		output.danger(
-			globalThis.systemConfig.dev.fail.replaceAll('{{port}}', String(globalThis.config.system.project.port))
-		)
-		console.error(error)
-		return
-	}
-	throw error
-})
-if (lifeCycle.beforeMount) await lifeCycle.beforeMount({ app, server })
+	const server = http.createServer(app.callback())
+	server.on('error', (error: any) => {
+		if (error?.code === 'EADDRINUSE') {
+			output.danger(
+				globalThis.systemConfig.dev.fail.replaceAll('{{port}}', String(globalThis.config.system.project.port))
+			)
+			console.error(error)
+			return
+		}
+		throw error
+	})
+	if (lifeCycle.beforeMount) await lifeCycle.beforeMount({ app, server })
 
-server.listen(globalThis.config.system.project.port, async () => {
-	if (lifeCycle.mounted) await lifeCycle.mounted({ app, server })
+	server.listen(globalThis.config.system.project.port, async () => {
+		if (lifeCycle.mounted) await lifeCycle.mounted({ app, server })
+	})
 })
