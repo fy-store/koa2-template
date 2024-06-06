@@ -1,6 +1,6 @@
 # koa2-template
 
-koa2 模板, 目前仍在开发中, 不建议生产环境中使用
+基于 koa2 构建的 nodejs 后端模版
 
 ## 说明
 
@@ -64,24 +64,22 @@ _npm_
 npm run dev
 ```
 
-**生产模式 [暂停使用]**
-
-_pnpm_
+**生产测试模式**
 
 ```cmd
-pnpm run start
+pnpm run dev:start
 ```
 
 _yarn_
 
 ```cmd
-yarn run start
+yarn run dev:start
 ```
 
 _npm_
 
 ```cmd
-npm run start
+npm run dev:start
 ```
 
 **debug 模式**
@@ -102,6 +100,46 @@ _npm_
 
 ```cmd
 npm run debug
+```
+
+**打包**
+
+_pnpm_
+
+```cmd
+pnpm run build
+```
+
+_yarn_
+
+```cmd
+yarn run build
+```
+
+_npm_
+
+```cmd
+npm run build
+```
+
+**打包并预览**
+
+_pnpm_
+
+```cmd
+pnpm run preview
+```
+
+_yarn_
+
+```cmd
+yarn run preview
+```
+
+_npm_
+
+```cmd
+npm run preview
 ```
 
 ## 使用手册
