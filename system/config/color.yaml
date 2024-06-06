@@ -1,0 +1,14 @@
+# 色彩配置
+# 色彩选配推荐: https://hao.uisdc.com/color/
+
+# 危险(崩溃)
+danger: "#F56C6C"
+
+# 警告
+warning: "#E6A23C"
+
+# 正常
+normal: "#00adb5"
+
+# 成功
+success: "#1bd1a5"
