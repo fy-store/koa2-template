@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import './clearDist.js'
+import hasDir from './hasDir.js'
 
 console.clear()
 
@@ -28,4 +29,6 @@ fs.writeFileSync(newPackPath, JSON.stringify(newPack, null, 4))
 // 复制 src/public
 const publicPath = path.join(rootPath, '/src/public')
 const newPublicPath = path.join(rootPath, '/dist/src/public')
-fs.cpSync(publicPath, newPublicPath, { recursive: true })
+if (hasDir(publicPath)) {
+	fs.cpSync(publicPath, newPublicPath, { recursive: true })
+}
