@@ -1,0 +1,12 @@
+{
+	"ignore": ["**/node_modules/**", "public/**"],
+	"quiet": true,
+	"signal": "sign",
+	"ext": "js,ts,json,yaml,cjs,mjs",
+	"events": {
+		"start": "tsx -r tsconfig-paths/register ./system/dev/event/start.ts",
+		"crash": "tsx -r tsconfig-paths/register ./system/dev/event/crash.ts",
+		"restart": "tsx -r tsconfig-paths/register ./system/dev/event/restart.ts",
+		"exit": "tsx -r tsconfig-paths/register ./system/dev/event/exit.ts"
+	}
+}
