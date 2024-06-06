@@ -1,0 +1,7 @@
+# 数据库配置
+host: "localhost"
+port: 3306
+# 连接的数据库(名字, 多个单词请使用下划线分隔)
+database: "koa_template2"
+user: "root"
+password: "123456"

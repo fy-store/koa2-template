@@ -1,0 +1,5 @@
+# 接口起始路径
+api: "/api"
+
+# 前端静态资源
+webPath: "/public/dist"

@@ -1,0 +1,26 @@
+# 临时凭证所需配置
+sts:
+  # 用户 accessKeyId
+  accessKeyId: ""
+
+  # 用户 accessKeySecret
+  accessKeySecret: ""
+
+  # 角色 roleArn
+  roleArn: ""
+
+  # 自定义权限策略，用于进一步限制 STS 临时访问凭证的权限。
+  # 如果不指定 Policy，则返回的 STS 临时访问凭证默认拥有指定角色的所有权限
+  # 使用字符串或对象配置, 不配置请置为空字符串
+  policy: ""
+
+  # 临时访问凭证有效时间单位为秒(取值最小15分钟, 最大1小时)
+  expirationSeconds: 900
+
+# 客户端操作所需配置
+client:
+  # 填写Bucket所在地域, 示例："oss-cn-guangzhou"
+  region: ""
+  
+  # 填写存储空间名称
+  bucket: ""

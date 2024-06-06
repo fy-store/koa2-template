@@ -1,0 +1,30 @@
+# 系统配置
+project:
+  # 启动端口
+  port: 3323
+
+# 内置工具配置
+lib:
+  # hash 算法 key 值, 通过 npm run key 可快速生成一个
+  hashKey: 5PtcMNPT0L5qqAsZwseYsjKvkCkb3oaE
+
+  # hash 算法加盐轮数, 数值过大会造成一定的性能瓶颈
+  hashSalt: 10
+
+  token:
+    # 传递 null 将在每次重启服务时随机生成一个 Token , 生产环境推荐使用随机生成, 开发环境可以固定 Token 以便于调试 [推荐]
+    key: "dev"
+    # 以下两个配置会作为默认参数, 在实际使用过程中也可以通过传递配置对象来覆盖此默认参数
+    # token有效时长, 单位秒 604800 <=> 7天
+    effectiveTime: 604800
+    # 验证 token 时是验证时间是否过期
+    verifyTime: true
+
+# 开发服务器配置
+dev:
+  # 每次重启开发服务时是否清空控制台
+  restartClear: true
+  # 每次启动开发服务时是否清空控制台
+  startClear: true
+  # 每次启动开发服务时是否输出提示
+  startTip: true
