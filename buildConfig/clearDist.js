@@ -1,10 +1,13 @@
 import fs from 'fs'
 import path from 'path'
+import hasDir from './hasDir.js'
 
 const rootPath = path.resolve()
 const dist = path.join(rootPath, '/dist')
 try {
-	fs.rmSync(dist, { recursive: true })
+	if (hasDir(dist)) {
+		fs.rmSync(dist, { recursive: true })
+	}
 	fs.mkdirSync(dist)
 } catch (error) {
 	if (error.code === 'EBUSY') {
