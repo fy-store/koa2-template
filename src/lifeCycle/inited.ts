@@ -5,7 +5,6 @@ import { bodyParser } from '@koa/bodyparser'
 import router from '#router'
 import { routeError } from '#lib'
 import { checkAuthority } from '#middleware'
-import { Session } from '#lib'
 
 export default (ctx: TInitedCtx) => {
 	const { app } = ctx
@@ -16,5 +15,3 @@ export default (ctx: TInitedCtx) => {
 	app.use(checkAuthority()) // 权限验证
 	app.use(router.routes()) // 使用路由
 }
-
-new Session()
