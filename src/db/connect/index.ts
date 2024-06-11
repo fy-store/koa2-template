@@ -1,4 +1,4 @@
-import { TInitTable } from '../types/index.js'
+import { TInitTable, TQuery, TExecute } from '../types/index.js'
 import './init.js'
 import mysql2 from 'mysql2/promise'
 const { host, user, port, password, database } = config.mysql
@@ -27,8 +27,8 @@ const pool = mysql2.createPool({
 await pool.query(`use ${database}`)
 
 export default pool
-export const execute = pool.execute.bind(pool)
-export const query = pool.query.bind(pool)
+export const execute: TExecute = pool.execute.bind(pool)
+export const query: TQuery = pool.query.bind(pool)
 
 const initTable: TInitTable = await import('../initTable/index.js')
 if (initTable.default) {

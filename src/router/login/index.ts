@@ -1,5 +1,5 @@
 import Router from 'koa-router'
-import { authorization } from '#systemLib'
+import { session } from '#lib'
 
 const router = new Router({ prefix: '/login' })
 export default router
@@ -8,6 +8,8 @@ const account = 'root'
 const password = '123456'
 
 router.get('/', async (ctx) => {
+	console.log(ctx.sessionId)
+	console.log(ctx.session)
 	ctx.body = {
 		code: 0,
 		msg: '测试账号和密码获取成功',
@@ -20,7 +22,7 @@ router.get('/', async (ctx) => {
 
 router.post('/', async (ctx) => {
 	if (ctx.request.body.account === account && ctx.request.body.password === password) {
-		const token = await authorization.createToken({ identity: 'test', id: 1 })
+		const token = await session.create({ identity: 'admin' })
 		ctx.body = {
 			code: 0,
 			msg: '登录成功',

@@ -1,5 +1,7 @@
-import mysql2 from 'mysql2'
-import pool from '../db/index.js'
+import pool from '../connect/index.js'
+
+export type TQuery = (sql: string, q?: any[]) => Promise<[any[], any]>
+export type TExecute = (sql: string, q?: any[]) => Promise<[any[], any]>
 
 /**
  * db 上下文
@@ -12,11 +14,11 @@ export interface TDbCtx {
 	/**
 	 * 用于操作数据库
 	 */
-	query: mysql2.Query
+	query: TQuery
 	/**
 	 * 用于操作数据库(带缓存优化)
 	 */
-	execute: mysql2.Query
+	execute: TExecute
 }
 
 /**

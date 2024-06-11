@@ -9,9 +9,8 @@ try {
 		user,
 		port,
 		password
-		// database
 	})
-	const result = await connection.query(
+	await connection.query(
 		`create database if not exists ${database} default character set utf8mb4 default collate utf8mb4_bin`
 	)
 	await connection.end()
