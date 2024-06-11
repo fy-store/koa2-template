@@ -19,7 +19,7 @@ router.get('/', async (ctx) => {
 })
 
 router.post('/', async (ctx) => {
-	if (ctx.body.account === account && ctx.body.password === password) {
+	if (ctx.request.body.account === account && ctx.request.body.password === password) {
 		const token = await authorization.createToken({ identity: 'test', id: 1 })
 		ctx.body = {
 			code: 0,
