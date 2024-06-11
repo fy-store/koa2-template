@@ -8,5 +8,7 @@ export default (_ctx: TMountedCtx) => {
 		console.log('')
 		output.success(`✨ 当前为生产模式, ${config.system.project.port} 端口监听中...`)
 		console.log('')
+		output.success(`✨ 内网地址: http://127.0.0.1:${config.system.project.port}`)
+		console.log('')
 	}
 }
