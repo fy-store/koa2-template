@@ -1,12 +1,9 @@
 import { type PropertyPath } from 'lodash-es'
 import Session from '../index.js'
 
-interface JSONObject {
-	[key: string]: string | number | boolean | null | TJSON
+export interface TJSON {
+	[key: string | number]: string | number | boolean | null | TJSON
 }
-interface JSONArray extends Array<string | number | boolean | null | TJSON> {}
-
-export type TJSON = JSONArray | JSONObject
 
 /**
  * 迭代回调函数
