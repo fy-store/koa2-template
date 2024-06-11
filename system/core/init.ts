@@ -6,7 +6,7 @@ import '@system/core/importSystemConfig.js'
 if (process.env.NODE_ENV === void 0) {
 	process.env.NODE_ENV = 'production'
 } else {
-	process.env.NODE_ENV = 'production'
+	process.env.NODE_ENV = 'development'
 }
 
 const publicPath = path.join(systemConfig.rootPath, systemConfig.dev.publicPath)

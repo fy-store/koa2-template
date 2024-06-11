@@ -13,6 +13,7 @@ import {
 	TCustomMatch,
 	TCheckWhiteListConfig
 } from './types/index.js'
+import output from '../output/index.js'
 
 const matchMap: TMatchMap = {
 	default(url, method, rule) {
@@ -200,7 +201,8 @@ class CheckAuthority<T extends TConfig> {
 		if (isWhiteList) return true
 		const rules = this.#router[ruleName]
 		if (!rules) {
-			throw new Error(`CheckAuthority: check - route => "${String(ruleName)}" rules does not exist`)
+			output.warning(`CheckAuthority: check - route => "${String(ruleName)}" rules does not exist`)
+			return false
 		}
 		const result = rules.find((rule) => rule.match(url, method, { url: rule.url, method: rule.method }))
 		return !!result
@@ -215,7 +217,8 @@ class CheckAuthority<T extends TConfig> {
 		method = method.toUpperCase() as TMethod
 		const rules = this.#router[ruleName]
 		if (!rules) {
-			throw new Error(`CheckAuthority: checkRoute - route => "${String(ruleName)}" rules does not exist`)
+			output.warning(`CheckAuthority: checkRoute - route => "${String(ruleName)}" rules does not exist`)
+			return false
 		}
 		const result = rules.find((rule) => rule.match(url, method, { url: rule.url, method: rule.method }))
 		return !!result

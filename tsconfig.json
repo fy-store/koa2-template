@@ -19,7 +19,9 @@
 			// 系统依赖勿动--end--------
 			"#lib": ["./src/lib/index.ts"],
 			"#router": ["./src/router/index.ts"],
-			"#middleware": ["./src/middleware/index.ts"]
+			"#middleware": ["./src/middleware/index.ts"],
+			"#db": ["./src/db/api/index.ts"],
+			"#dbConnect": ["./src/db/connect/index.ts"]
 		}
 	},
 	"lib": ["esnext", "NodeNext"],

@@ -111,7 +111,7 @@ export interface TCheck<T> {
 	/**
 	 * 使用的规则(配置对象 router 的 key)
 	 */
-	ruleName: T
+	ruleName: T | string
 }
 
 /**
