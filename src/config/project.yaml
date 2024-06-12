@@ -3,3 +3,10 @@ api: "/api"
 
 # 前端静态资源
 webPath: "/src/public/dist"
+
+# session 配置
+session:
+  # 有效时间(单位毫秒), 6小时
+  maxAge: 21600000
+  # 活跃状态自动延长
+  activeExtend: true

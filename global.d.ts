@@ -75,6 +75,19 @@ declare global {
 			 * 前端静态资源
 			 */
 			webPath: string
+			/**
+			 * 会话配置
+			 */
+			session: {
+				/**
+				 * 有效时间(单位毫秒), 6小时
+				 */
+				maxAge: number
+				/**
+				 * 活跃状态自动延长
+				 */
+				activeExtend: boolean
+			}
 		}
 
 		/**

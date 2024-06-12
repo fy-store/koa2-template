@@ -1,6 +1,7 @@
 import { type Context, type Next } from 'koa'
 import { CheckAuthority } from '#systemLib'
 import { session } from '#lib'
+import { formatDate } from 'assist-tools'
 
 const checkAuthority = new CheckAuthority({
 	baseURL: '/api',
@@ -35,11 +36,27 @@ export default () => {
 
 		// 不在白名单内则验证会话和路由权限
 		if (!ctx.session) {
+			// 会话不存在
 			ctx.body = {
 				code: 401,
 				msg: '登录过期'
 			}
 			return
+		}
+
+		const now = new Date()
+		if (new Date(ctx.session.lastActiveTime as string).getTime() + config.project.session.maxAge < now.getTime()) {
+			// 会话已过期
+			ctx.body = {
+				code: 401,
+				msg: '登录过期'
+			}
+			return
+		}
+
+		// 活跃状态自动延长有效期
+		if (config.project.session.activeExtend) {
+			await session.update(ctx.sessionId, 'lastActiveTime', formatDate(now))
 		}
 
 		const checkResult = checkAuthority.checkRoute({
@@ -49,7 +66,6 @@ export default () => {
 		})
 
 		if (!checkResult) {
-			console.log(ctx.session)
 			ctx.body = {
 				code: 403,
 				msg: '权限不足'
