@@ -15,7 +15,7 @@ router.get('/', async (ctx) => {
 	})
 	ctx.body = {
 		code: 0,
-		msg: '测试账号和密码获取成功',
+		msg: '测试账号和密码获取成功, 使用 POST 发送 http://127.0.0.1:3323/api/login 登录, 字段 account 和 password',
 		data: {
 			account,
 			password,

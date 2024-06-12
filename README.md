@@ -145,3 +145,11 @@ npm run preview
 ## 使用手册
 
 编写中
+
+## 示例启用
+
+-   运行启动后访问 http://127.0.0.1:3323/api/login
+
+-   src/router 示例路由代码
+
+-   src/lib/session 开启配置持久化会话
