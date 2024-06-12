@@ -19,7 +19,7 @@ export const remove = async (sessionId: string) => {
 	const sql = `
        update ${name} set deleteTime = from_unixtime(?) where id = ? and deleteTime is null
     `
-	return await execute(sql, [sessionId])
+	return await execute(sql, [Date.now() / 1000, sessionId])
 }
 
 export const update = async (sessionId: string, sessionContent: TJSON) => {
