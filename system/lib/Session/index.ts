@@ -26,10 +26,10 @@ export default class Session {
 	 * 创建一个当前实例唯一的会话id
 	 */
 	#createId() {
-		let id = nanoid()
+		let id = nanoid().toString() + 't' + Date.now()
 		while (1) {
 			if (this.#sessionStore.has(id)) {
-				id = nanoid()
+				id = nanoid().toString() + 't' + Date.now()
 			} else {
 				return id
 			}
