@@ -1,6 +1,7 @@
-import { TInitTable, TQuery, TExecute } from '../types/index.js'
 import './init.js'
 import mysql2 from 'mysql2/promise'
+import initTable from '../initTable/index.js'
+import { TQuery, TExecute } from '../types/index.js'
 const { host, user, port, password, database } = config.mysql
 
 // 创建连接池，设置连接池的参数
@@ -23,14 +24,12 @@ const pool = mysql2.createPool({
 	idleTimeout: 0
 })
 
-// 使用数据库
-await pool.query(`use ${database}`)
+const execute: TExecute = pool.execute.bind(pool)
+const query: TQuery = pool.query.bind(pool)
 
-export default pool
-export const execute: TExecute = pool.execute.bind(pool)
-export const query: TQuery = pool.query.bind(pool)
-
-const initTable: TInitTable = await import('../initTable/index.js')
-if (initTable.default) {
-	await initTable.default({ pool, execute, query })
+if (initTable) {
+	await initTable({ pool, execute, query })
 }
+
+export { execute, query }
+export default pool
