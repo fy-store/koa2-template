@@ -15,8 +15,8 @@ dependencies:
     specifier: ^6.20.0
     version: 6.20.0
   assist-tools:
-    specifier: ^2.2.4
-    version: 2.2.4
+    specifier: ^2.3.0
+    version: 2.3.0
   bcrypt:
     specifier: ^5.1.1
     version: 5.1.1
@@ -919,8 +919,8 @@ packages:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
     dev: false
 
-  /assist-tools@2.2.4:
-    resolution: {integrity: sha512-x22vJ3GcZFuBCB/FC8Hw1fg7BUs07K6UgVieVlrQnQtQao27ixwgoHWQY8xtX/ressfJGraOUd05cKgthPiOKg==}
+  /assist-tools@2.3.0:
+    resolution: {integrity: sha512-ziybo9Q+nDn3Zv9AgF1nxKbGflhATeTbRoX8XDXFZJOzcqGNuFaFF3q9V/59pOf8fQCkiuqnizcWUWHrUmdmWA==}
     dependencies:
       lodash-es: 4.17.21
     dev: false

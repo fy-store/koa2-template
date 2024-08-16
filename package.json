@@ -46,7 +46,7 @@
 		"@koa/bodyparser": "^5.1.1",
 		"@types/lodash-es": "^4.17.12",
 		"ali-oss": "^6.20.0",
-		"assist-tools": "^2.2.4",
+		"assist-tools": "^2.3.0",
 		"bcrypt": "^5.1.1",
 		"chalk": "^5.3.0",
 		"formidable": "^3.5.1",
