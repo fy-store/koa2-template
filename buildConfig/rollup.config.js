@@ -2,14 +2,14 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import json from '@rollup/plugin-json'
-import { builtinModules } from 'module' // 引入 Node.js 内置模块列表
+import { builtinModules } from 'module' 
 
 export default {
-	input: './system/main.ts', // 你的入口文件
+	input: './system/main.ts', 
 	output: {
 		dir: './dist/src',
-		format: 'esm', // 输出为 ESModule 格式
-		sourcemap: true // 是否生成 sourcemap 文件
+		format: 'esm', 
+		sourcemap: true 
 	},
 	plugins: [
 		resolve(), // 解析 node_modules 中的模块
