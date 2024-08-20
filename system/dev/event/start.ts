@@ -1,19 +1,39 @@
-import '@system/core/importPublicConfig.js'
-import '@system/core/importSystemConfig.js'
-import output from '../../lib/output/index.js'
+import '../../config/index.js'
+import fs from 'fs'
+import path from 'path'
+import output from '../../utils/output/index.js'
+import parseConfig from '../../utils/parseConfig/index.js'
 
-if (config.system.dev.startClear) {
-	console.clear()
-}
+const statePath = path.join(import.meta.dirname, '../state.json')
+const state = parseConfig.loadSync(statePath)
+if (state.start) {
+	const { startClearConsole, startSuccessTip, startOutputLocalhost, startOutputIP, startOutputENV, port } =
+		sysConfig.project
 
-if (config.system.dev.startTip) {
-	console.log('')
-	output.success(globalThis.systemConfig.dev.success)
-	console.log('')
-	output.success(`✨ http://127.0.0.1:${globalThis.config.system.project.port}`)
-	console.log('')
-	output.success(`✨ http://${globalThis.systemConfig.ip}:${globalThis.config.system.project.port}`)
-	console.log('')
-	output.success(`✨ 当前为开发模式, ${globalThis.config.system.project.port} 端口监听中...`)
-	console.log('')
+	if (startClearConsole) {
+		console.clear()
+	}
+
+	if (startSuccessTip) {
+		output.success(sysConfig.project.devSuccess)
+		console.log('')
+	}
+
+	if (startOutputLocalhost) {
+		output.success(`✨ http://localhost:${port}`)
+		console.log('')
+	}
+
+	if (startOutputIP) {
+		output.success(`✨ http://${sysConfig.ip}:${port}`)
+		console.log('')
+	}
+
+	if (startOutputENV) {
+		output.success(`✨ 当前为开发模式, ${port} 端口监听中...`)
+		console.log('')
+	}
+} else {
+	state.start = true
+	fs.writeFileSync(statePath, JSON.stringify(state, null, 4))
 }

@@ -1,5 +1,5 @@
 import { type Context, type Next } from 'koa'
-import { CheckAuthority } from '#systemLib'
+import { CheckAuthority } from '#sysUtils'
 import { session } from '#lib'
 import { formatDate } from 'assist-tools'
 

@@ -1,16 +1,15 @@
+import '../core/importSystemConfig.js'
+import '../core/importPublicConfig.js'
 import chalk from 'chalk'
 import clipboard from 'clipboardy'
 import { formatDate } from 'assist-tools'
-import '@system/core/importPublicConfig.js'
-import '@system/core/importSystemConfig.js'
-import { randomKey } from '#systemLib'
+import randomKey from '../utils/randomKey/index.js'
 
-const success = chalk.hex(globalThis.systemConfig.color.success)
-const warning = chalk.hex(globalThis.systemConfig.color.warning)
+const success = chalk.hex(sysConfig.project.colorSuccess)
+const warning = chalk.hex(sysConfig.project.colorWarning)
 const key = randomKey()
 
 console.clear()
-console.log('')
 console.log('🛠️', success('生成成功'), '🎉 🎉 🎉')
 console.log('')
 console.log('✨', success(formatDate(new Date(), 'YYYY-MM-DD hh:mm:ss')))

@@ -1,5 +1,5 @@
 import mysql from 'mysql2/promise'
-import { output } from '#systemLib'
+import { output } from '#sysUtils'
 const { host, user, port, password, database } = config.mysql
 
 try {

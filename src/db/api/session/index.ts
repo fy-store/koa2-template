@@ -1,10 +1,10 @@
 // 该模块用于 session 持久化存储
 
 import { execute } from '#dbConnect'
-import { TJSON } from '@system/lib/Session/types/index.js'
+import { type Session } from '#sysType'
 
 const name = 'session'
-export const create = async (id: string, content: TJSON) => {
+export const create = async (id: string, content: Session.JSONData) => {
 	const sql = `
         insert into ${name}(
             id, 
@@ -22,7 +22,7 @@ export const remove = async (sessionId: string) => {
 	return await execute(sql, [Date.now() / 1000, sessionId])
 }
 
-export const update = async (sessionId: string, sessionContent: TJSON) => {
+export const update = async (sessionId: string, sessionContent: Session.JSONData) => {
 	const sql = `
        update ${name} set content = ? where id = ? and deleteTime is null
     `

@@ -1,5 +1,5 @@
 // 打开注释可以开启持久化(基于MySQL)
-import { Session, timedTask } from '#systemLib'
+import { Session, timedTask } from '#sysUtils'
 // import { session as sessionStore } from '#db'
 
 const session = new Session({

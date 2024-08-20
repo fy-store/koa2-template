@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
 		"noEmitOnError": false,
 		"target": "ESNext",
 		"module": "NodeNext",
@@ -10,13 +11,12 @@
 		"outDir": "./dist/src",
 		"baseUrl": ".",
 		"paths": {
-			// 系统依赖勿动--start------
-			"@/*": ["./src/*"],
 			"@root/*": ["./*"],
-			"@system/*": ["./system/*"],
-			"#systemLib": ["./system/lib/index.ts"],
-			"#systemMiddleware": ["./system/middleware/index.js"],
-			// 系统依赖勿动--end--------
+			"@/*": ["./src/*"],
+			"@sys/*": ["./system/*"],
+			"#sysType": ["./system/types/index.ts"],
+			"#sysUtils": ["./system/utils/index.js"],
+			"#sysMiddleware": ["./system/middleware/index.js"],
 			"#lib": ["./src/lib/index.ts"],
 			"#router": ["./src/router/index.ts"],
 			"#middleware": ["./src/middleware/index.ts"],

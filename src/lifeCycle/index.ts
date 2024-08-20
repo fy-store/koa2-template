@@ -1,4 +1,4 @@
-import { type TCallback } from '@system/types/lifeCycle.js'
+import { type lifeCycle } from '#sysType'
 import beforeInit from './beforeInit.js'
 import inited from './inited.js'
 import mounted from './mounted.js'
@@ -10,4 +10,4 @@ export default {
 	beforeInit,
 	inited,
 	mounted
-} as TCallback
+} as lifeCycle.LifeCycle

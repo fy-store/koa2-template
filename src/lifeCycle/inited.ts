@@ -1,12 +1,12 @@
-import { type TInitedCtx } from '@system/types/lifeCycle.js'
-import { cors } from '#systemMiddleware'
+import { type lifeCycle } from '#sysType'
+import { cors } from '#sysMiddleware'
 import koaStatic from 'koa-static'
 import { bodyParser } from '@koa/bodyparser'
 import router from '#router'
 import { routeError } from '#lib'
 import { checkAuthority } from '#middleware'
 
-export default (ctx: TInitedCtx) => {
+export default (ctx: lifeCycle.InitedCtx) => {
 	const { app } = ctx
 	app.on('error', routeError)
 	app.use(cors())

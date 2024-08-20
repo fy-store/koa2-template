@@ -1,6 +1,6 @@
 import path from 'path'
 import log4js from 'log4js'
-const { rootPath } = systemConfig
+const { rootPath } = sysConfig
 // @ts-ignore
 log4js.configure({
 	appenders: {

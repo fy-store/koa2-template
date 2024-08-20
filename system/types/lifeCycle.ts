@@ -4,7 +4,7 @@ import Koa from 'koa'
 /**
  * beforeInit 上下文对象
  */
-export interface TBeforeInitCtx {
+export interface BeforeInitCtx {
 	/**
 	 * koa 实例对象(该钩子中为 null)
 	 */
@@ -18,7 +18,7 @@ export interface TBeforeInitCtx {
 /**
  * inited 上下文对象
  */
-export interface TInitedCtx {
+export interface InitedCtx {
 	/**
 	 * koa 实例对象
 	 */
@@ -32,7 +32,7 @@ export interface TInitedCtx {
 /**
  * beforeMount 上下文对象
  */
-export interface TBeforeMountCtx {
+export interface BeforeMountCtx {
 	/**
 	 * koa 实例对象
 	 */
@@ -46,29 +46,29 @@ export interface TBeforeMountCtx {
 /**
  * mounted 上下文对象
  */
-export type TMountedCtx = TBeforeMountCtx
+export interface MountedCtx extends BeforeMountCtx {}
 
-export interface TCallback {
+export interface LifeCycle {
 	/**
 	 * koa 应用实例之前
 	 * @param ctx 上下文对象
 	 */
-	beforeInit?: (ctx: TBeforeInitCtx) => Promise<void> | void
+	beforeInit?: (ctx: BeforeInitCtx) => Promise<void> | void
 	/**
 	 * koa 应用实例创建完毕, http 服务启动前
 	 * - 可在该钩子中对 koa 应用进行初始化操作, 如使用中间件
 	 * @param ctx 上下文对象
 	 */
-	inited?: (ctx: TInitedCtx) => Promise<void> | void
+	inited?: (ctx: InitedCtx) => Promise<void> | void
 	/**
 	 * 在 koa 应用实例后且 http 服务创建完毕, 挂载端口前
 	 * - 可在该钩子中对 koa 应用进行初始化操作, 如使用中间件 或 对 http 服务操作
 	 * @param ctx 上下文对象
 	 */
-	beforeMount?: (ctx: TBeforeMountCtx) => Promise<void> | void
+	beforeMount?: (ctx: BeforeMountCtx) => Promise<void> | void
 	/**
 	 * 在 http 服务挂载到端口后
 	 * @param ctx 上下文对象
 	 */
-	mounted?: (ctx: TMountedCtx) => Promise<void> | void
+	mounted?: (ctx: MountedCtx) => Promise<void> | void
 }
