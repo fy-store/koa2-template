@@ -1,4 +1,8 @@
-# koa2-template
+# 迁移说明
+
+项目已迁移: https://github.com/fy-store/uxiu
+
+## koa2-template
 
 基于 koa2 构建的 nodejs 后端模版
 
